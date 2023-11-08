@@ -7,11 +7,10 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.noxmor.terramax.tabs.CreativeModeTabs;
 import org.slf4j.Logger;
 
 @Mod(Terramax.MOD_ID)
@@ -23,6 +22,8 @@ public class Terramax
     public Terramax()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        CreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
